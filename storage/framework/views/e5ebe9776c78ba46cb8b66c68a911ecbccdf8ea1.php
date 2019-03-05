@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title',$user->name.'的个人中心'); ?>
 
 <?php $__env->startSection('content'); ?>

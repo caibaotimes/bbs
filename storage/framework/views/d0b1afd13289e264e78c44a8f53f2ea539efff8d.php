@@ -28,8 +28,8 @@
 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="">个人中心</a>
-              <a class="dropdown-item" href="">编辑资料</a>
+              <a class="dropdown-item" href="<?php echo e(route('users.show',Auth::id())); ?>">个人中心</a>
+              <a class="dropdown-item" href="<?php echo e(route('users.edit',Auth::id())); ?>">编辑资料</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" id="logout" href="#">
                 <form action="<?php echo e(route('logout')); ?>" method="POST">
