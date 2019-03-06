@@ -15,7 +15,7 @@ class ImageUploaderHandler
     public function save($file,$folder,$file_prefix,$max_width=false)
     {
         //定义保存图片的文件夹路径
-        $folder_name = "uploads/images/$folder/".date("Y/md",time());
+        $folder_name = "uploads/images/$folder/".date("Ym/d",time());
         //定义上传的物理路径
         $upload_path = public_path()."/".$folder_name;
         //粘贴时，图片一般不带后缀名
