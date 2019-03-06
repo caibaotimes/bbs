@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title',$user->name.'的个人中心'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -7,11 +9,14 @@
             <div class="card ">
                 <img class="card-img-top" src="https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600" alt="<?php echo e($user->name); ?>">
                 <div class="card-body">
-                    <h5><strong>个人简介</strong></h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    <h5>
+                        <storng>个人简介</storng>
+                    </h5>
+                    <p><?php echo e($user->introduction); ?></p>
                     <hr>
                     <h5><strong>注册于</strong></h5>
-                    <p>January 01 1901</p>
+                    <p><?php echo e($user->created_at->diffForHumans()); ?></p>
+
                 </div>
             </div>
         </div>
