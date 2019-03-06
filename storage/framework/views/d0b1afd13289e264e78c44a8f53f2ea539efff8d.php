@@ -23,7 +23,7 @@
         <?php else: ?>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/60/h/60" class="img-responsive img-circle" width="30px" height="30px">
+              <img src="<?php echo e(Auth::user()->avatar); ?>" class="img-responsive img-circle" width="30px" height="30px">
               <?php echo e(Auth::user()->name); ?>
 
             </a>
