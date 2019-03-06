@@ -11,7 +11,7 @@ namespace App\Handlers;
 
 class ImageUploaderHandler
 {
-    protected $allowed_ext = ['png','jpg','jpeg'];
+    protected $allowed_ext = ['jpeg','bmp','png','gif'];
     public function save($file,$folder,$file_prefix,$width=false)
     {
         //定义保存图片的文件夹路径
