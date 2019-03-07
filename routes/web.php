@@ -14,7 +14,7 @@
 
 Route::get('/','PagesController@root')->name('root');
 
-Auth::routes();
+//Auth::routes();
 
 //用户身份验证相关的路由
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
@@ -37,44 +37,4 @@ Route::get('email/verify/{id}','Auth\VerificationController@verify')->name('veri
 Route::get('email/resend','Auth\VerificationController@resend')->name('verification.resend');
 
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
