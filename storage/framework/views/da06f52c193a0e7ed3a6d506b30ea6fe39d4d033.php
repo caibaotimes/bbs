@@ -22,7 +22,7 @@
 
                     <small class="media-body meta text-secondary">
 
-                        <a class="text-secondary" href="#" title="<?php echo e($topic->category->name); ?>">
+                        <a class="text-secondary" href="<?php echo e(route('categories.show',$topic->category_id)); ?>" title="<?php echo e($topic->category->name); ?>">
                             <i class="far fa-folder"></i>
                             <?php echo e($topic->category->name); ?>
 
