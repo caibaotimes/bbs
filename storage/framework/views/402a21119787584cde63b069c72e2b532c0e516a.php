@@ -14,7 +14,8 @@
                   <?php echo $__env->make('topics._topic_list',['topics'=>$topics], \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                   
                   <div class="mt-5">
-                      <?php echo $topics->appends(Request::except('page'))->render(); ?>}
+                      <?php echo $topics->appends(Request::except('page'))->render(); ?>
+
                   </div>
               </div>
           </div>
