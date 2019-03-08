@@ -10,7 +10,8 @@
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
   <title><?php echo $__env->yieldContent('title', 'LaraBBS'); ?> - Laravel 进阶教程</title>
-
+  <meta name="description" content="<?php echo $__env->yieldContent('description','LaraBBS 爱好者社区'); ?>">
+  <meta name="keywords" content="<?php echo $__env->yieldContent('keywords','LaraBBS 爱好者社区'); ?>">
   <!-- Styles -->
   <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
   <?php echo $__env->yieldContent('styles'); ?>

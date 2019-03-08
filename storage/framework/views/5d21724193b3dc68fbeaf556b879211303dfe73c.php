@@ -1,73 +1,64 @@
+<?php $__env->startSection('title', $topic->title); ?>
+<?php $__env->startSection('description', $topic->excerpt); ?>
+
 <?php $__env->startSection('content'); ?>
 
-<div class="container">
-  <div class="col-md-10 offset-md-1">
-    <div class="card ">
-      <div class="card-header">
-        <h1>Topic / Show #<?php echo e($topic->id); ?></h1>
-      </div>
+    <div class="row">
 
-      <div class="card-body">
-        <div class="card-block bg-light">
-          <div class="row">
-            <div class="col-md-6">
-              <a class="btn btn-link" href="<?php echo e(route('topics.index')); ?>"><- Back</a>
+        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
+            <div class="card ">
+                <div class="card-body">
+                    <div class="text-center">
+                        作者：<?php echo e($topic->user->name); ?>
+
+                    </div>
+                    <hr>
+                    <div class="media">
+                        <div align="center">
+                            <a href="<?php echo e(route('users.show', $topic->user->id)); ?>">
+                                <img class="thumbnail img-fluid" src="<?php echo e($topic->user->avatar); ?>" width="300px" height="300px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <a class="btn btn-sm btn-warning float-right mt-1" href="<?php echo e(route('topics.edit', $topic->id)); ?>">
-                Edit
-              </a>
-            </div>
-          </div>
         </div>
-        <br>
 
-        <label>Title</label>
-<p>
-	<?php echo e($topic->title); ?>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 topic-content">
+            <div class="card ">
+                <div class="card-body">
+                    <h1 class="text-center mt-3 mb-3">
+                        <?php echo e($topic->title); ?>
 
-</p> <label>Body</label>
-<p>
-	<?php echo e($topic->body); ?>
+                    </h1>
 
-</p> <label>User_id</label>
-<p>
-	<?php echo e($topic->user_id); ?>
+                    <div class="article-meta text-center text-secondary">
+                        <?php echo e($topic->created_at->diffForHumans()); ?>
 
-</p> <label>Category_id</label>
-<p>
-	<?php echo e($topic->category_id); ?>
+                        ⋅
+                        <i class="far fa-comment"></i>
+                        <?php echo e($topic->reply_count); ?>
 
-</p> <label>Reply_count</label>
-<p>
-	<?php echo e($topic->reply_count); ?>
+                    </div>
 
-</p> <label>View_count</label>
-<p>
-	<?php echo e($topic->view_count); ?>
+                    <div class="topic-body mt-4 mb-4">
+                        <?php echo $topic->body; ?>
 
-</p> <label>Last_reply_user_id</label>
-<p>
-	<?php echo e($topic->last_reply_user_id); ?>
+                    </div>
 
-</p> <label>Order</label>
-<p>
-	<?php echo e($topic->order); ?>
+                    <div class="operate">
+                        <hr>
+                        <a href="<?php echo e(route('topics.edit', $topic->id)); ?>" class="btn btn-outline-secondary btn-sm" role="button">
+                            <i class="far fa-edit"></i> 编辑
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm" role="button">
+                            <i class="far fa-trash-alt"></i> 删除
+                        </a>
+                    </div>
 
-</p> <label>Excerpt</label>
-<p>
-	<?php echo e($topic->excerpt); ?>
-
-</p> <label>Slug</label>
-<p>
-	<?php echo e($topic->slug); ?>
-
-</p>
-      </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
