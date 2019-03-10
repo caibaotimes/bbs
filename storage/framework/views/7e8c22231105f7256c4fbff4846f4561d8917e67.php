@@ -34,9 +34,9 @@
                 </div>
                 <div class="form-group">
                     <select name="category_id" id="" class="form-control" required>
-                        <option value="" disabled selected hidden>请选择分类</option>
+                        <option value="" disabled hidden <?php echo e($topic->id ? '' : 'seletcted'); ?>>请选择分类</option>
                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>
+                            <option value="<?php echo e($value->id); ?>" <?php echo e($topic->category_id == $value->id ? 'selected' : ''); ?>><?php echo e($value->name); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
@@ -60,7 +60,34 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('styles'); ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/simditor.css')); ?>">
+<?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(asset('js/module.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/hotkeys.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/uploader.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/simditor.js')); ?>"></script>
+
+    <script>
+        $(document).ready(function () {
+            var editor = new Simditor({
+                textarea:$('#editor'),
+                upload:{
+                    url:'<?php echo e(route('topics.upload_image')); ?>',
+                    params:{
+                        _token:'<?php echo e(csrf_token()); ?>'
+                    },
+                    fileKey:'upload_file',
+                    connectionCount:3,
+                    leaveConfirm:'文件上传中，关闭此页面将取消上传'
+                },
+                pasteImage:true,
+            });
+        });
+    </script>
+<?php $__env->stopSection(); ?>
 
 
 
