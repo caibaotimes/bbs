@@ -11,7 +11,7 @@
                 <div class="media-body">
 
                     <div class="media-heading mt-0 mb-1">
-                        <a href="<?php echo e(route('topics.show', [$topic->id])); ?>" title="<?php echo e($topic->title); ?>">
+                        <a href="<?php echo e($topic->link()); ?>" title="<?php echo e($topic->title); ?>">
                             <?php echo e($topic->title); ?>
 
                         </a>
