@@ -20,7 +20,8 @@
 <?php endif; ?>
 
 <div class="mt-4 pt-1">
-    <?php echo $topics->render(); ?>}
+    <?php echo $topics->render(); ?>
+
 </div>
 
 

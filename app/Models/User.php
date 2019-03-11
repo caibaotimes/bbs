@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
     
     public function replies()
     {
-        $this->hasMany(Reply::class);
+        return $this->hasMany(Reply::class);
     }
 }
 

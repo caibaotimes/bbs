@@ -66,7 +66,42 @@
 
                 </div>
             </div>
+            
+            <div class="card topic-reply mt-4">
+                <div class="card-body">
+                    <?php echo $__env->make('topics._reply_box',['topic'=>$topic], \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make('topics._reply_list',['replies' => $topic->replies()->with('user')->get()], \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
