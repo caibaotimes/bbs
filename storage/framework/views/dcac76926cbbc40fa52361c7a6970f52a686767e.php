@@ -18,10 +18,10 @@
 
                     
                     <span class="meta float-right ">
-            <a title="删除回复">
-              <i class="far fa-trash-alt"></i>
-            </a>
-          </span>
+                        <a title="删除回复">
+                          <i class="far fa-trash-alt"></i>
+                        </a>
+                      </span>
                 </div>
                 <div class="reply-content text-secondary">
                     <?php echo $reply->content; ?>
