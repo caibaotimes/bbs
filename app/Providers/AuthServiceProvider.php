@@ -13,10 +13,10 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+        'App\Model' => 'App\Policies\ModelPolicy',
 		 \App\Models\Reply::class => \App\Policies\ReplyPolicy::class,
 		 \App\Models\Topic::class => \App\Policies\TopicPolicy::class,
-        'App\Model' => 'App\Policies\ModelPolicy',
-        App\Models\User::class => App\Policies\UserPolicy::class,
+         \App\Models\User::class => \App\Policies\UserPolicy::class,
     ];
 
     /**
@@ -27,7 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        \Horizon::auth(function($request){
+           //是否是站长
+            return \Auth::user()->hasRole('Founder');
+        });
 
-        //
     }
 }
