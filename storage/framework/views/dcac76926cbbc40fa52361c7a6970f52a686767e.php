@@ -17,11 +17,21 @@
                     <span class="meta text-secondary" title="<?php echo e($reply->created_at); ?>"><?php echo e($reply->created_at->diffForHumans()); ?></span>
 
                     
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('destroy',$reply)): ?>
                     <span class="meta float-right ">
-                        <a title="删除回复">
-                          <i class="far fa-trash-alt"></i>
-                        </a>
-                      </span>
+                        <form action="<?php echo e(route('replies.destroy', $reply->id)); ?>"
+                              onsubmit="return confirm('确定要删除此评论？');"
+                              method="post">
+                            <?php echo e(csrf_field()); ?>
+
+                            <?php echo e(method_field('DELETE')); ?>
+
+                            <button type="submit" class="btn btn-default btn-xs pull-left text-secondary">
+                            <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </span>
+                    <?php endif; ?>
                 </div>
                 <div class="reply-content text-secondary">
                     <?php echo $reply->content; ?>
