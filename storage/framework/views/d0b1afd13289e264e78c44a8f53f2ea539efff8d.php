@@ -43,6 +43,13 @@
 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage_contents')): ?>
+                <a class="dropdown-item" href="<?php echo e(url(config('administrator.uri'))); ?>">
+                  <i class="fas fa-tachometer-alt mr-2"></i>
+                  管理后台
+                </a>
+                <div class="dropdown-divider"></div>
+              <?php endif; ?>
               <a class="dropdown-item" href="<?php echo e(route('users.show',Auth::id())); ?>">
                 <i class="far fa-user mr-2"></i>
                 个人中心
