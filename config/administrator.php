@@ -116,7 +116,7 @@ return array(
      *  用来作为后台主页的菜单条目，由use_dashboard选项决定
      * @type string
      */
-    'home_page' => 'users',
+    'home_page' => 'topics',
 
     /*
      * The route to which the user will be taken when they click the "back to site" button
@@ -130,14 +130,14 @@ return array(
      *  当选项permission 权限检测不通过时，会重定向用户到此处设置的路径
      * @type string
      */
-    'login_path' => 'login',
+    'login_path' => 'permission-denied',
 
     /*
      * The logout path is the path where Administrator will send the user when they click the logout link
-     *
+     *  当选项 permission 权限检测不通过时，会重定向用户到此处设置的路径
      * @type string
      */
-    'logout_path' => false,
+    'logout_path' => 'false',
 
     /*
      * This is the key of the return path that is sent with the redirection to your login_action. Session::get('redirect') will hold the return URL.

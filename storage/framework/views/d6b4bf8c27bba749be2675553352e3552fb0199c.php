@@ -11,7 +11,7 @@
 
   <title><?php echo $__env->yieldContent('title', 'LaraBBS'); ?> - <?php echo e(setting('site_name','laravel-bbs')); ?></title>
   <meta name="description" content="<?php echo $__env->yieldContent('description',setting('seo_description','laravel-bbs')); ?>">
-  <meta name="keywords" content="<?php echo $__env->yieldContent('keywords',setting('seo_keywords','laravel-bbs')); ?>">
+  <meta name="keywords" content="<?php echo $__env->yieldContent('keywords',setting('seo_keyword','laravel-bbs')); ?>">
   <!-- Styles -->
   <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
   <?php echo $__env->yieldContent('styles'); ?>
