@@ -24,3 +24,20 @@
     </div>
   </div>
 <?php endif; ?>
+
+
+<?php if(count($links)): ?>
+  <div class="card mt-4">
+    <div class="card-body pt-2">
+      <div class="text-center mt-1 mb-0 text-muted">资源推荐</div>
+      <hr class="mt-2 mb-3">
+      <?php $__currentLoopData = $links; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $link): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <a class="media mt-1" href="<?php echo e($link->link); ?>">
+          <div class="media-body">
+            <span class="media-heading text-muted"><?php echo e($link->title); ?></span>
+          </div>
+        </a>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
+  </div>
+<?php endif; ?>
