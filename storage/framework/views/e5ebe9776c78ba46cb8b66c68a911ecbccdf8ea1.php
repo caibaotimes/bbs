@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title',$user->name.'的个人中心'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -16,6 +14,9 @@
                     <hr>
                     <h5><strong>注册于</strong></h5>
                     <p><?php echo e($user->created_at->diffForHumans()); ?></p>
+                    <h5><strong>最后活跃</strong></h5>
+                    <p title="<?php echo e($user->last_actived_at); ?>"><?php echo e($user->last_actived_at->diffForHumans()); ?></p>
+      
 
                 </div>
             </div>
